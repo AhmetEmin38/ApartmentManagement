@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="apartmanyonetimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="apartmanyonetici">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="apartmanyonetimEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="apartmanyonetici" EntityType="Self.apartmanyonetici" />
+  </EntityContainer>
+</Schema>
