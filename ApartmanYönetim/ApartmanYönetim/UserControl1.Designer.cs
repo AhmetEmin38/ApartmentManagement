@@ -30,6 +30,12 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,12 +43,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,75 @@
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // button4
+            // 
+            this.button4.ForeColor = System.Drawing.Color.Cyan;
+            this.button4.Location = new System.Drawing.Point(79, 588);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(80, 32);
+            this.button4.TabIndex = 18;
+            this.button4.Text = "Değiştir";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.Cyan;
+            this.label6.Location = new System.Drawing.Point(13, 526);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 21);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Doğalgaz";
+            this.label6.Visible = false;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox4.Location = new System.Drawing.Point(17, 550);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(205, 32);
+            this.textBox4.TabIndex = 16;
+            this.textBox4.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.Color.Cyan;
+            this.label5.Location = new System.Drawing.Point(13, 461);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 21);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Aidat";
+            this.label5.Visible = false;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox3.Location = new System.Drawing.Point(17, 485);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(205, 32);
+            this.textBox3.TabIndex = 14;
+            this.textBox3.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Cyan;
+            this.button3.Location = new System.Drawing.Point(48, 406);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(132, 52);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Aidat Doğalgaz Değiştir";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -93,6 +162,7 @@
             this.label2.Size = new System.Drawing.Size(168, 27);
             this.label2.TabIndex = 12;
             this.label2.Text = "HOŞ GELDİN:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button2
             // 
@@ -160,75 +230,6 @@
             this.label1.Size = new System.Drawing.Size(168, 27);
             this.label1.TabIndex = 5;
             this.label1.Text = "HOŞ GELDİN:";
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Cyan;
-            this.button3.Location = new System.Drawing.Point(48, 406);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 52);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Aidat Doğalgaz Değiştir";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.Color.Cyan;
-            this.label5.Location = new System.Drawing.Point(13, 461);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 21);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Aidat";
-            this.label5.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox3.Location = new System.Drawing.Point(17, 485);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 32);
-            this.textBox3.TabIndex = 14;
-            this.textBox3.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.Cyan;
-            this.label6.Location = new System.Drawing.Point(13, 526);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 21);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Doğalgaz";
-            this.label6.Visible = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox4.Location = new System.Drawing.Point(17, 550);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(205, 32);
-            this.textBox4.TabIndex = 16;
-            this.textBox4.Visible = false;
-            // 
-            // button4
-            // 
-            this.button4.ForeColor = System.Drawing.Color.Cyan;
-            this.button4.Location = new System.Drawing.Point(79, 588);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 32);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Değiştir";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // UserControl1
             // 

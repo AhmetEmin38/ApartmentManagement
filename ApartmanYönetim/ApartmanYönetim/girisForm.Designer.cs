@@ -121,7 +121,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(302, 28);
             this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "Kullanıcı Adı";
+            this.textBox1.Text = "Sultanım";
             this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -134,7 +134,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(302, 28);
             this.textBox2.TabIndex = 8;
-            this.textBox2.Text = "Şifre";
+            this.textBox2.Text = "123456";
             this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
             // 
             // button1

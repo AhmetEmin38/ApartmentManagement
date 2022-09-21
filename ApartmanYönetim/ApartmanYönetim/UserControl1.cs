@@ -47,13 +47,13 @@ namespace ApartmanYönetim
             connection.Open();
             if (islemlerForm.giristenmi == true)
             {
-                //da = new SqlDataAdapter("Select *from apartmanyonet where userID='"+girisForm.kullaniciID+"'", connection);
+                
                 SqlCommand cmd = new SqlCommand("Select *from apartmanyonet where userID='" + girisForm.kullaniciID + "'", connection);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     label2.Text = dr["username"].ToString();
-                    //label1.Text = dr["KolonAdi"].ToString();
+                    
                 }
             }
             else
@@ -63,64 +63,20 @@ namespace ApartmanYönetim
                 if (dr.Read())
                 {
                     label2.Text = dr["username"].ToString();
-                    //label1.Text = dr["KolonAdi"].ToString();
+                   
                 }
-                //da = new SqlDataAdapter("Select *from apartmanyonet where userID='" + kayitForm.hesapID + "'", connection);
+                
             }
 
-            //cmdb = new SqlCommandBuilder(da);
-            //ds = new DataSet();
-            //da.Fill(ds, "apartmanyonet");
-            //dataGridView1.DataSource = ds.Tables[0];
+            
             connection.Close();
 
 
 
-            //connection.Open();
-            //SqlCommand command = new SqlCommand("Select aidat from apartmanyonetici where username='"+girisForm.username+"'", connection);
-            //textBox1.Text = command.ExecuteScalar().ToString();
-            //SqlCommand command2 = new SqlCommand("Select dogalgaz from apartmanyonetici where username='"+girisForm.username+"'", connection);
-            //textBox2.Text = command2.ExecuteScalar().ToString();
-            //connection.Close();
-
-
-
-            //MessageBox.Show("Bir hata oluştu" + ex.Message);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //girisForm form = new girisForm();
-            //try
-            //{
-            //    if (girisForm.username != "")
-            //    {
-            //        connection.Open();
-            //        SqlCommand command3 = new SqlCommand("update apartmanyonet set aidat='" + textBox1.Text + "',dogalgaz='" + textBox2.Text + "' where username='" + girisForm.username + "'");
-                    
-
-            //        MessageBox.Show("Değişim has completed");
-            //        connection.Close();
-            //    }
-            //    else
-            //    {
-            //        connection.Open();
-            //        SqlCommand command3 = new SqlCommand("update apartmanyonet set aidat='" + textBox1.Text + "',dogalgaz='" + textBox2.Text + "' where username='" + kayitForm.username + "'");
-
-
-            //        MessageBox.Show("Değişim has completed");
-            //        connection.Close();
-            //    }
-
-                
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //    throw;
-            //}
-            
-            
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -159,21 +115,29 @@ namespace ApartmanYönetim
             
             if (islemlerForm.giristenmi == true)
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("update apartmanyonet set username=@username, password=@password where userID='" + girisForm.kullaniciID + "'",connection);
-                cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                cmd.Parameters.AddWithValue("@password", textBox2.Text);
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                if (textBox1.Text != "")
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("update apartmanyonet set username=@username, password=@password where userID='" + girisForm.kullaniciID + "'", connection);
+                    cmd.Parameters.AddWithValue("@username", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@password", textBox2.Text);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                
             }
             else
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("update apartmanyonet set username=@username, password=@password where userID='" + kayitForm.hesapID + "'",connection);
-                cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                cmd.Parameters.AddWithValue("@password", textBox2.Text);
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                if (textBox1.Text != "") 
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("update apartmanyonet set username=@username, password=@password where userID='" + kayitForm.hesapID + "'", connection);
+                    cmd.Parameters.AddWithValue("@username", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@password", textBox2.Text);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                
             }
             
             MessageBox.Show("Kullanıcı adı ve şifre değiştirildi", "Program");
@@ -234,22 +198,63 @@ namespace ApartmanYönetim
             connection.Open();
             if (islemlerForm.giristenmi = true)
             {
-                SqlCommand command = new SqlCommand("update apartmanyonet set aidat=@aidat, dogalgaz=@dogalgaz where userID='" + girisForm.kullaniciID + "'", connection);
-                command.Parameters.AddWithValue("@aidat", textBox3.Text);
-                command.Parameters.AddWithValue("@dogalgaz", textBox4.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Değişim Tamamlandı");
+                if (textBox3.Text!="")
+                {
+                    SqlCommand command = new SqlCommand("update apartmanyonet set aidat=@aidat, dogalgaz=@dogalgaz where userID='" + girisForm.kullaniciID + "'", connection);
+                    command.Parameters.AddWithValue("@aidat", textBox3.Text);
+                    command.Parameters.AddWithValue("@dogalgaz", textBox4.Text);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Değişim Tamamlandı");
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    button2.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Kullanıcı Adı Boş Olamaz Değişim Tamamlanmadı");
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    button2.Visible = false;
+                }
+                
             }
             else
             {
-                SqlCommand command = new SqlCommand("update apartmanyonet set aidat=@aidat, dogalgaz=@dogalgaz where userID='" + kayitForm.hesapID + "'", connection);
-                command.Parameters.AddWithValue("@aidat", textBox3.Text);
-                command.Parameters.AddWithValue("@dogalgaz", textBox4.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Değişim Tamamlandı");
+                if (textBox3.Text !="")
+                {
+                    SqlCommand command = new SqlCommand("update apartmanyonet set aidat=@aidat, dogalgaz=@dogalgaz where userID='" + kayitForm.hesapID + "'", connection);
+                    command.Parameters.AddWithValue("@aidat", textBox3.Text);
+                    command.Parameters.AddWithValue("@dogalgaz", textBox4.Text);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Değişim Tamamlandı");
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    button2.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Kullanıcı Adı Boş Olamaz Değişim Tamamlanmadı");
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    button2.Visible = false;
+                }
+                
             }
             connection.Close();
             
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -195,10 +195,11 @@
             // 
             // userControl41
             // 
-            this.userControl41.Location = new System.Drawing.Point(201, 30);
+            this.userControl41.Location = new System.Drawing.Point(200, 27);
             this.userControl41.Name = "userControl41";
             this.userControl41.Size = new System.Drawing.Size(961, 674);
             this.userControl41.TabIndex = 6;
+            this.userControl41.Load += new System.EventHandler(this.userControl41_Load_1);
             // 
             // userControl31
             // 

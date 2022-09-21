@@ -23,21 +23,25 @@ namespace ApartmanYönetim
         SqlConnection connection = girisForm.connection;
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         
             eklenenKullanici = textBox1.Text;
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             eklenenkullaniciBorc = textBox3.Text;
             if (girisForm.kullaniciID != "")
             {
-                
-                SqlCommand command = new SqlCommand("Insert into dairelerveborclar (dairead,toplamborc,daireID) values ('" + textBox1.Text + "','" + textBox3.Text + "','" + girisForm.kullaniciID + "')",connection);
+
+                SqlCommand command = new SqlCommand("Insert into dairelerveborclar (dairead,toplamborc,daireID,tarih) values ('" + textBox1.Text + "','" + textBox3.Text + "','" + girisForm.kullaniciID + "','" + DateTime.UtcNow.ToString("d") + "')", connection);
                 command.ExecuteNonQuery();
             }
             else if (girisForm.kullaniciID == "")
             {
-                
-                SqlCommand command2 = new SqlCommand("Insert into dairelerveborclar (dairead,toplamborc,daireID) values ('" + textBox1.Text + "','" + textBox3.Text + "','" + kayitForm.hesapID + "')",connection);
+
+                SqlCommand command2 = new SqlCommand("Insert into dairelerveborclar (dairead,toplamborc,daireID,tarih) values ('" + textBox1.Text + "','" + textBox3.Text + "','" + kayitForm.hesapID + "','" + DateTime.UtcNow.ToString("d") + "')", connection);
                 command2.ExecuteNonQuery();
             }
             MessageBox.Show("Ekleme İşlemi Tamamlandı");
@@ -46,7 +50,8 @@ namespace ApartmanYönetim
             
             
             this.Hide();
-
+            UserControl2 user = new UserControl2();
+            user.baslangıc();
 
 
         }

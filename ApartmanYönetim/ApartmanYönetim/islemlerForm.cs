@@ -28,7 +28,7 @@ namespace ApartmanYönetim
             {
                 kayittanmi = true;
             }
-
+            CheckForIllegalCrossThreadCalls = false;
 
         }
         int move;
@@ -104,6 +104,8 @@ namespace ApartmanYönetim
             userControl11.Hide();
             userControl21.Hide();
             userControl31.Hide();
+            
+            userControl41.duyuru();
         }
 
         private void userControl21_Load(object sender, EventArgs e)
@@ -125,11 +127,23 @@ namespace ApartmanYönetim
             userControl21.Hide();
             userControl31.Show();
             userControl41.Hide();
+            userControl31.mesajCekme();
+            
         }
 
         private void islemlerForm_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void userControl41_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userControl41_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

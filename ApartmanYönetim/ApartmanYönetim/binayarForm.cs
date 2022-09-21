@@ -29,12 +29,14 @@ namespace ApartmanYönetim
                 List<string> isimler = new List<string>();
                 isimler = richTextBox1.Text.Split(' ').ToList();
                 connection.Open();
-                //SqlCommand command2 = new SqlCommand("Insert into apartmanyonet (aidat,dogalgaz) values ('" + aidattextBox.Text + "','" + dogalgaztextBox.Text + "')", connection);
+                
                 Thread.Sleep(1000);
                 
                 foreach (var item in isimler)
                 {
-                    SqlCommand command = new SqlCommand("Insert into dairelerveborclar (dairead,toplamborc,daireID) values ('" + item + "','" + 0 + "','"+kayitForm.hesapID+"')", connection);
+                    SqlCommand command = new SqlCommand("Insert into dairelerveborclar (dairead,toplamborc,daireID,tarih) values ('" + item + "','" + 0 + "','"+kayitForm.hesapID+"','"+ DateTime.UtcNow.ToString("d") +"')", connection);
+                   
+                    
                     command.ExecuteNonQuery();
                 }
 
@@ -50,7 +52,7 @@ namespace ApartmanYönetim
             {
 
                 MessageBox.Show(ex.Message);
-                throw;
+                
             }
             
         }

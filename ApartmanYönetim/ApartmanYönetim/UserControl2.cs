@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Threading;
+using System.Reflection.Emit;
+using System.Net.Configuration;
 
 namespace ApartmanYönetim
 {
@@ -25,6 +27,7 @@ namespace ApartmanYönetim
         private BindingSource bs = new BindingSource();
         private void UserControl2_Load(object sender, EventArgs e)
         {
+
             baslangıc();
             datagridStyle();
         }
@@ -46,13 +49,13 @@ namespace ApartmanYönetim
 
         }
 
-        void baslangıc()
+        public void baslangıc()
         {
             if (connection.State != ConnectionState.Closed)
             {
                 connection.Close();
             }
-            
+
             if (girisForm.kullaniciID != "")
             {
                 Thread.Sleep(1500);
@@ -62,6 +65,18 @@ namespace ApartmanYönetim
                 ds = new DataSet();
                 da.Fill(ds, "dairelerveborclar");
                 dataGridView1.DataSource = ds.Tables[0];
+
+                SqlCommand cmd = new SqlCommand("Select *from dairelerveborclar where daireID='" + girisForm.kullaniciID + "'", connection);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    //label2.Text = dr["username"].ToString();
+                    DateTime dt = DateTime.Now;
+
+                    DateTime appDate = DateTime.Parse(dr["tarih"].ToString());
+
+                }
+
                 connection.Close();
             }
             else if (girisForm.kullaniciID == "")
@@ -72,14 +87,31 @@ namespace ApartmanYönetim
                 ds = new DataSet();
                 da.Fill(ds, "dairelerveborclar");
                 dataGridView1.DataSource = ds.Tables[0];
+
+
+                SqlCommand cmd2 = new SqlCommand("Select *from dairelerveborclar where daireID='" + kayitForm.hesapID + "'", connection);
+                SqlDataReader dr2 = cmd2.ExecuteReader();
+                while (dr2.Read())
+                {
+                    DateTime dt = DateTime.Now;
+                    DateTime appDate = DateTime.Parse(dr2["tarih"].ToString());
+
+
+                }
                 connection.Close();
             }
 
+
+
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            
+
+
+
+
             if (button1.Text == "Verileri Değiştir")
             {
                 dataGridView1.ReadOnly = false;
@@ -87,12 +119,56 @@ namespace ApartmanYönetim
                 button2.Visible = true;
                 button4.Visible = true;
                 button5.Visible = true;
-                
+                comboBox1.Visible = true;
+                label2.Visible = true;
+                txtBorc.Visible = true;
+
+                button7.Visible = true;
+
+                if (islemlerForm.giristenmi == true)
+                {
+
+
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("Select *from dairelerveborclar where daireID='" + girisForm.kullaniciID + "'", connection);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    comboBox1.Items.Clear();
+                    while (dr.Read())
+                    {
+                        comboBox1.Items.Add(dr["dairead"]);
+                    }
+                    dr.Close();
+
+                    connection.Close();
+
+
+
+
+
+
+
+
+                }
+                else
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("Select *from dairelerveborclar where daireID='" + kayitForm.hesapID + "'", connection);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    comboBox1.Items.Clear();
+                    while (dr.Read())
+                    {
+                        comboBox1.Items.Add(dr["dairead"]);
+                    }
+                    dr.Close();
+
+
+                }
+
             }
             else
             {
                 connection.Open();
-                da.Update(ds, "dairelerveborclar") ;
+                da.Update(ds, "dairelerveborclar");
                 MessageBox.Show("Değişim Tamamlandı", "Program");
                 dataGridView1.ReadOnly = true;
                 button2.Visible = false;
@@ -103,11 +179,21 @@ namespace ApartmanYönetim
                 textBox1.Visible = false;
                 button5.Visible = false;
                 button6.Visible = false;
+                comboBox1.Visible = false;
+                label2.Visible = false;
+                txtBorc.Visible = false;
+
+                button7.Visible = false;
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             string secmeSorgusu = "SELECT * from dairelerveborclar where dairead=@dairead";
             SqlCommand komut = new SqlCommand(secmeSorgusu, connection);
@@ -118,7 +204,7 @@ namespace ApartmanYönetim
             {
                 string isim = dr["dairead"].ToString();
                 dr.Close();
-                DialogResult durum = MessageBox.Show(isim + " Kaydını Silmek istediğinizden emin misiniz","Program",MessageBoxButtons.YesNo);
+                DialogResult durum = MessageBox.Show(isim + " Kaydını Silmek istediğinizden emin misiniz", "Program", MessageBoxButtons.YesNo);
                 if (DialogResult.Yes == durum)
                 {
                     string silmeSorgusu = "DELETE from dairelerveborclar where dairead=@dairead";
@@ -134,13 +220,13 @@ namespace ApartmanYönetim
                 MessageBox.Show("Daire Bulunamadı");
                 connection.Close();
             }
-            //dataGridView1.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
-            //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-              //this.dataGridView1.SelectedRows[0].Index
+
         }
-        
+
         private void button3_Click(object sender, EventArgs e)
         {
+            
+
             baslangıc();
         }
 
@@ -148,7 +234,7 @@ namespace ApartmanYönetim
         {
             kullaniciekleForm kullaniciekleform = new kullaniciekleForm();
             kullaniciekleform.Show();
-            
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -157,7 +243,7 @@ namespace ApartmanYönetim
             textBox1.Visible = true;
             button6.Visible = true;
         }
-        
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -176,15 +262,15 @@ namespace ApartmanYönetim
             else if (islemlerForm.giristenmi == true)
             {
                 string kayit = "update dairelerveborclar set toplamborc = toplamborc + @eklenen where daireID=@daireID";
-                SqlCommand command = new SqlCommand(kayit,connection);
+                SqlCommand command = new SqlCommand(kayit, connection);
                 command.Parameters.AddWithValue("@eklenen", eklenen);
                 command.Parameters.AddWithValue("@daireID", girisForm.kullaniciID);
                 //SqlDataAdapter adapter = new SqlDataAdapter(command);
                 command.ExecuteNonQuery();
-                
-                
 
-                
+
+
+
 
             }
             connection.Close();
@@ -198,5 +284,81 @@ namespace ApartmanYönetim
         {
 
         }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBorc_Click(object sender, EventArgs e)
+        {
+            if (txtBorc.Text == "Mevcut Borç")
+            {
+                txtBorc.Text = "";
+            }
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (islemlerForm.giristenmi == true)
+            {
+
+
+
+                SqlCommand command = new SqlCommand("Select *from dairelerveborclar where daireID='" + girisForm.kullaniciID + "' and dairead='" + comboBox1.Text + "'", connection);
+
+
+
+
+                connection.Open();
+                if (comboBox1.Text != "")
+                {
+
+                }
+                SqlDataReader dr2 = command.ExecuteReader();
+                if (dr2.Read())
+                {
+                    txtBorc.Text = dr2["toplamborc"].ToString();
+
+                }
+                connection.Close();
+
+                dr2.Close();
+
+
+
+
+            }
+            else
+            {
+
+                SqlCommand command = new SqlCommand("Select *from dairelerveborclar where daireID='" + kayitForm.hesapID + "' and dairead='" + comboBox1.Text + "'", connection);
+
+                SqlDataReader dr2 = command.ExecuteReader();
+                if (dr2.Read())
+                {
+                    txtBorc.Text = dr2["toplamborc"].ToString();
+
+                }
+                connection.Close();
+
+                dr2.Close();
+
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("update dairelerveborclar set toplamborc=@toplamborc where dairead=@dairead",connection);
+            command.Parameters.AddWithValue("@toplamborc", txtBorc.Text);
+            command.Parameters.AddWithValue("@dairead", comboBox1.Text);
+            command.ExecuteNonQuery();
+            connection.Close();
+            MessageBox.Show("Güncelleme Tamamlandı");
+            baslangıc();
+
+        }
+        
     }
 }
