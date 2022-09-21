@@ -12,13 +12,16 @@ Kayıt Ekranı
 ![Ekran görüntüsü 2022-08-21 105914](https://user-images.githubusercontent.com/82727570/185782001-ba9efd93-56da-4c9c-9543-364a0e6ef7ec.png)
 
 Uygulamadan Görüntüler
-![Ekran görüntüsü 2022-08-21 105940](https://user-images.githubusercontent.com/82727570/185782018-fb0ab2b9-4d94-40bd-b94e-6080b08ce491.png)
+![anasayfa](https://user-images.githubusercontent.com/82727570/191534634-449e47b6-d56c-4684-9e6e-2de79380df5d.png)
 
 
-![Ekran görüntüsü 2022-08-21 110016](https://user-images.githubusercontent.com/82727570/185782022-b20ee673-9473-4fa2-8ac7-e8db6255a383.png)
 
 
-![Ekran görüntüsü 2022-08-21 110029](https://user-images.githubusercontent.com/82727570/185782024-8738645e-8e5a-4dc6-9723-5860a32d7526.png)
+![Ekran görüntüsü 2022-09-21 173931](https://user-images.githubusercontent.com/82727570/191534767-deedfc62-37c5-4b9a-b218-748ca30b5bb2.png)
+
+
+![Ekran görüntüsü 2022-09-21 173949](https://user-images.githubusercontent.com/82727570/191534906-6f3a7f48-72b4-4ffc-bcd7-af275981f7ee.png)
 
 
 ![Ekran görüntüsü 2022-08-21 110044](https://user-images.githubusercontent.com/82727570/185782029-5b00322f-852d-42b9-862f-36779b1982d9.png)
+
