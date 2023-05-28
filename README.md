@@ -1,27 +1,32 @@
 # ApartmanYonetimOtomasyonu
-C# ile yazılmış apartman yönetim otomasyonu
+An Apartment and Estate Management System Written With C#
 
-Giriş Ekranı
-
-
-![Ekran görüntüsü 2022-08-21 105853](https://user-images.githubusercontent.com/82727570/185781991-cccd060f-1bfb-466e-97f7-0ce824efaa9b.png)
-
-Kayıt Ekranı
+I Keep Developing It
 
 
-![Ekran görüntüsü 2022-08-21 105914](https://user-images.githubusercontent.com/82727570/185782001-ba9efd93-56da-4c9c-9543-364a0e6ef7ec.png)
+                                                            Login Screen
 
-Uygulamadan Görüntüler
-![anasayfa](https://user-images.githubusercontent.com/82727570/191534634-449e47b6-d56c-4684-9e6e-2de79380df5d.png)
+![Ekran görüntüsü 2023-05-28 162743](https://github.com/AhmetEmin38/ApartmentManagement/assets/82727570/65af8e39-0b25-4d55-8c94-56fafb900870)
 
 
 
 
-![Ekran görüntüsü 2022-09-21 173931](https://user-images.githubusercontent.com/82727570/191534767-deedfc62-37c5-4b9a-b218-748ca30b5bb2.png)
+
+Screen Shots From App
 
 
-![Ekran görüntüsü 2022-09-21 173949](https://user-images.githubusercontent.com/82727570/191534906-6f3a7f48-72b4-4ffc-bcd7-af275981f7ee.png)
+![Ekran görüntüsü 2023-05-28 162835](https://github.com/AhmetEmin38/ApartmentManagement/assets/82727570/b2c09b3e-663d-4e80-96d9-f1932a0fe1cf)
 
 
-![Ekran görüntüsü 2022-08-21 110044](https://user-images.githubusercontent.com/82727570/185782029-5b00322f-852d-42b9-862f-36779b1982d9.png)
+![Ekran görüntüsü 2023-05-28 164501](https://github.com/AhmetEmin38/ApartmentManagement/assets/82727570/56650c00-501a-4f2a-8227-93a5da9c6d5b)
 
+
+![Ekran görüntüsü 2023-05-28 164512](https://github.com/AhmetEmin38/ApartmentManagement/assets/82727570/d78bed12-5644-48ac-a89d-1554dca4fee5)
+
+
+![Ekran görüntüsü 2023-05-28 164524](https://github.com/AhmetEmin38/ApartmentManagement/assets/82727570/a60aaa36-f053-4a24-9015-0e1c522a4c39)
+
+
+Thanks For Reading It :)
+
+                                  You Can Give Me Advices From Social Medias Linked In My Profile :)
